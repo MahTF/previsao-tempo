@@ -1,46 +1,128 @@
-# Getting Started with Create React App
+<p align="center">
+  <img alt="Previsão do tempo ícone" src="./src/assets/icon.png" width="100"/>
+</p>
+<h1 align="center">
+  Previsão do Tempo
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- Badges -->
+<p align="center">
+  <!-- if your  -->
+  <a href="https://github.com/mahtf/previsao-tempo/graphs/commit-activity" alt="Maintenance">
+    <img src="https://img.shields.io/badge/Maintained%3F-yes-1EAE72.svg" />
+  </a>
 
-## Available Scripts
+  <!-- if your app is a website -->
+  <a href="https://mahtf-previsaotempo.netlify.app/" alt="Website de Previsão do Tempo">
+    <img src="https://img.shields.io/website-up-down-1EAE72-red/https://mahtf-previsaotempo.netlify.app/" />
+  </a>
 
-In the project directory, you can run:
+  <!-- License -->
+  <a href="./LICENSE" alt="License: MIT">
+    <img src="https://img.shields.io/badge/License-MIT-1EAE72.svg" />
+  </a>
 
-### `yarn start`
+  <!-- codefactor -->
+  <a href="https://www.codefactor.io/repository/github/mahtf/previsao-tempo" alt="CodeFactor">
+    <img src="https://www.codefactor.io/repository/github/mahtf/previsao-tempo/badge" />
+  </a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  <!-- if your app is a website deployed on Netlify -->
+  <a href="https://app.netlify.com/sites/mahtf-previsaotempo/deploys" alt="Netlify Status">
+    <img src="https://api.netlify.com/api/v1/badges/d8a91cef-7e8c-447d-b1fe-751860e418c5
+/deploy-status" />
+  </a>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  <br/>
 
-### `yarn test`
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/mahtf/previsao-tempo?color=blue">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  <!-- version -->
+  <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/mahtf/previsao-tempo">
 
-### `yarn build`
+  <!-- GitHub repo size -->
+  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/mahtf/previsao-tempo">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  <!-- Social -->  
+  <a href="https://github.com/mahtf/previsao-tempo/stargazers">
+    <img alt="GitHub stars" src="https://img.shields.io/github/stars/mahtf/previsao-tempo?style=social">
+  </a>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  <!-- more badges here -> https://gist.github.com/tterb/982ae14a9307b80117dbf49f624ce0e8 -->
+</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- summary -->
+<p align="center">
+  <a href="#clipboard-descrição">Descrição</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rocket-iniciando">Iniciando</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-o-que-contem">O que contém?</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licença">Licença</a>
+</p>
 
-### `yarn eject`
+> em desenvolvimento...
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## :clipboard: Descrição
+Aplicação desenvolvida para consumir uma API de clima utilizando react.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## :rocket: Iniciando
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Faça a cópia do repositório
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  - Usando Git
+```shell
+  git clone https://github.com/mahtf/previsao-tempo.git
+```
+  - Usando Github CLI
+```shell
+  gh repo clone mahtf/previsao-tempo
+```
+  > :bulb: ou como preferir
 
-## Learn More
+2. Installation
+- Utilizando yarn
+```shell 
+yarn install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Execução
+- Utilizando yarn
+```shell 
+yarn start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+## 🧐 O que contém?
+
+### :building_construction: Tecnologias
+- [React](https://pt-br.reactjs.org)
+- [TypeScript](https://www.typescriptlang.org)
+
+
+### :package: Pacotes
+- [package name](<link>)
+
+### Uma olhadinha na pasta `./src`.
+
+    ./src
+     ├── assets
+     ├── pages
+     ├── styles
+     ├── other-folder
+
+1.  **`assets`**: todos os recursos usados. Como ícones, imagens, etc.
+
+2.  **`pages`**: cada página da aplicação.
+
+3.  **`styles`**: estilos globais.
+   
+4.  **`other-folder`**: pastas adicionais.
+
+## :memo: Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+Build with 💙 By [Marcelo Ferreira](https://github.com/MahTF)
+
+Based on the [readme template](https://gist.github.com/henry-ns/a00234378353d9ca43e1bfe043202192) by [Henrique Miranda](http://thehenry.dev/)
