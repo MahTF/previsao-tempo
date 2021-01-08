@@ -99,7 +99,7 @@ yarn start
 
 
 ### :package: Pacotes
-- [package name](<link>)
+- [styled-components](https://styled-components.com)
 
 ### Uma olhadinha na pasta `./src`.
 
