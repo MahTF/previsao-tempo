@@ -100,6 +100,8 @@ yarn start
 
 ### :package: Pacotes
 - [styled-components](https://styled-components.com)
+- [axios](https://github.com/axios/axios)
+- [IBGE](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1)
 
 ### Uma olhadinha na pasta `./src`.
 

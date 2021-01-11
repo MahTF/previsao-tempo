@@ -1,8 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
+import axios from 'axios';
 
 import { Container, Header, Main, SelectGroup, SelectUf, SelectCity, Info, Footer } from './styles';
+import { isNullOrUndefined, isUndefined } from 'util';
+
+interface IBGEUfResponse {
+  sigla: string;
+}
+
+interface IBGECityResponse {
+  nome: string;
+}
 
 const Home = () => {
+  const [UFs, setUFs] = useState(['SP', 'MG', 'RJ', 'RR', 'PR']);
+  const [selectedUF, setSelectedUF] = useState<string>();
+  const [cities, setCities] = useState(['Santos', 'São Vicente']);
+  const [selectedCity, setSelectedCity] = useState();
+
+  useEffect(() => {
+    axios.get<IBGEUfResponse[]>('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
+      .then(res => {
+        const ufSigla = res.data.map(uf => uf.sigla).sort();
+        setUFs(ufSigla);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios.get<IBGECityResponse[]>(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedUF}/municipios`)
+      .then(res => {
+        const citiesList = res.data.map(city => city.nome).sort();
+        setCities(citiesList);
+      })
+  }, [selectedUF]);
+
+  function handleUfSelect(event: ChangeEvent<HTMLSelectElement>) {
+    const uf = event.target.value;
+
+    setSelectedUF(uf);
+  }
+
   return (
     <Container>
       <Header>
@@ -12,19 +49,23 @@ const Home = () => {
 
       <Main>
         <SelectGroup>
-          <SelectUf name="UF" id="UF">
-            <option value="Padrao" selected unselectable='on'>Selecione uma unidade federativa</option>
-            <option value="MG">Minas Gerais</option>
-            <option value="SP">São Paulo</option>
-            <option value="PR">Paraná</option>
+          <SelectUf
+            name="UF"
+            id="UF"
+            value={selectedUF}
+            onChange={handleUfSelect}
+          >
+            <option value="" selected hidden>Selecione uma UF</option>
+            {UFs.map(UF => {
+              return <option value={UF} key={UF}>{UF}</option>
+            })}
           </SelectUf>
 
           <SelectCity name="city" id="city">
-            <option value="Padrao" selected unselectable='on'>Selecione uma cidade</option>
-            <option value="Santos">Santos</option>
-            <option value="Lorena">Lorena</option>
-            <option value="Campo Mourao">Campo Mourão</option>
-            <option value="Juiz de Fora">Outside Judge</option>
+            <option value="" selected hidden>Selecione uma cidade</option>
+            {cities.map(city => {
+              return <option value={city} key={city}>{city}</option>
+            })}
           </SelectCity>
         </SelectGroup>
 
