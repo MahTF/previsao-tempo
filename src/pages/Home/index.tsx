@@ -2,7 +2,6 @@ import React, { useState, useEffect, ChangeEvent } from 'react';
 import axios from 'axios';
 
 import { Container, Header, Main, SelectGroup, SelectUf, SelectCity, Info, Footer } from './styles';
-import { isNullOrUndefined, isUndefined } from 'util';
 
 interface IBGEUfResponse {
   sigla: string;
@@ -16,7 +15,7 @@ const Home = () => {
   const [UFs, setUFs] = useState(['SP', 'MG', 'RJ', 'RR', 'PR']);
   const [selectedUF, setSelectedUF] = useState<string>();
   const [cities, setCities] = useState(['Santos', 'São Vicente']);
-  const [selectedCity, setSelectedCity] = useState();
+  const [selectedCity, setSelectedCity] = useState<string>();
 
   useEffect(() => {
     axios.get<IBGEUfResponse[]>('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
@@ -40,6 +39,12 @@ const Home = () => {
     setSelectedUF(uf);
   }
 
+  function handleCitySelect(event: ChangeEvent<HTMLSelectElement>) {
+    const citySelect = event.target.value;
+
+    setSelectedCity(citySelect);
+  }
+
   return (
     <Container>
       <Header>
@@ -55,14 +60,19 @@ const Home = () => {
             value={selectedUF}
             onChange={handleUfSelect}
           >
-            <option value="" selected hidden>Selecione uma UF</option>
+            <option value="" hidden>Selecione uma UF</option>
             {UFs.map(UF => {
               return <option value={UF} key={UF}>{UF}</option>
             })}
           </SelectUf>
 
-          <SelectCity name="city" id="city">
-            <option value="" selected hidden>Selecione uma cidade</option>
+          <SelectCity
+            name="city"
+            id="city"
+            value={selectedCity}
+            onChange={handleCitySelect}
+          >
+            <option value="" hidden>Selecione uma cidade</option>
             {cities.map(city => {
               return <option value={city} key={city}>{city}</option>
             })}
