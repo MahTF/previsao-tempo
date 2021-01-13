@@ -29,8 +29,7 @@
 
   <!-- if your app is a website deployed on Netlify -->
   <a href="https://app.netlify.com/sites/mahtf-previsaotempo/deploys" alt="Netlify Status">
-    <img src="https://api.netlify.com/api/v1/badges/d8a91cef-7e8c-447d-b1fe-751860e418c5
-/deploy-status" />
+    <img src="https://api.netlify.com/api/v1/badges/d8a91cef-7e8c-447d-b1fe-751860e418c5/deploy-status" />
   </a>
 
   <br/>
