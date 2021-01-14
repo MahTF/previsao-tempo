@@ -51,20 +51,23 @@ const Home = () => {
   }, [selectedUF]);
 
   useEffect(() => {
-    console.log(selectedCity);
-    setId(id + 5);
+    if (selectedCity !== undefined) {
+      axios.get(`http://apiadvisor.climatempo.com.br/api/v1/locale/city?name=${selectedCity}&state=${selectedUF}&country=BR&token=${process.env.REACT_APP_CLIMATEMPO_TOKEN}`)
+        .then(res => {
+          setId(res.data[0].id);
+        });
+    }
   }, [selectedCity]);
 
   useEffect(() => {
-    axios.get<ClimatempoResponse>(`http://apiadvisor.climatempo.com.br/api/v1/weather/locale/3477/current?token=${process.env.REACT_APP_CLIMATEMPO_TOKEN}`)
-      .then(res => {
-        console.log(res.data.data);
-        setTemperature(res.data.data.temperature);
-        setSensation(res.data.data.sensation);
-        setIcon(res.data.data.icon);
-        setCondition(res.data.data.condition);
-        setDate(res.data.data.date);
-      });
+    if (id !== 0) {
+      // const headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Authorization", "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE", "Content-Type": "application/json;charset=UTF-8" }
+      // const localeId: number[] = [id];
+      // axios.put(`http://apiadvisor.climatempo.com.br/api-manager/user-token/${process.env.REACT_APP_CLIMATEMPO_TOKEN}/locales`,
+      //   headers);
+      // Corrigir isso. 
+      getWeather(id);
+    }
   }, [id]);
 
   function handleUfSelect(event: ChangeEvent<HTMLSelectElement>) {
@@ -77,6 +80,17 @@ const Home = () => {
     const citySelect = event.target.value;
 
     setSelectedCity(citySelect);
+  }
+
+  function getWeather(id: number) {
+    axios.get<ClimatempoResponse>(`http://apiadvisor.climatempo.com.br/api/v1/weather/locale/${id}/current?token=${process.env.REACT_APP_CLIMATEMPO_TOKEN}`)
+      .then(res => {
+        setTemperature(res.data.data.temperature);
+        setSensation(res.data.data.sensation);
+        setIcon(res.data.data.icon);
+        setCondition(res.data.data.condition);
+        setDate(res.data.data.date);
+      });
   }
 
   return (
